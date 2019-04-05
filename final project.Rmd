@@ -1,0 +1,26 @@
+---
+title: "Speed Record Breaking Cars"
+output: html_notebook
+---
+
+
+```{r}
+years <- c(1894, 1949, 1955, 1959, 1963, 1965, 1967, 1968, 1969, 1982, 1983, 1986, 1987, 1993, 2004, 2005, 2007, 2010, 2017)
+makeModel <- c("Benz Velo", "Jaguar XK120", "Mercedes-Benz 300SL", "Aston Martin DB4 GT", "Iso Grifo GL 365", "AC Cobra Mk III 427", "Lamborghini Miura P400", "Ferrari 365 GTB/4 Daytona", "Lamborghini Miura P400S", "Lamborghini Countach LP500 S", "Ruf BTR", "Porsche 959", "Ruf CTR", "McLaren F1", "Koenigsegg CCR", "Bugatti Veyron EB 16.4", "SSC Ultimate Aero TT", "Bugatti Veyron 16.4 Super Sport", "Koenigsegg Agera RS")
+speed <- c(12, 124.6, 150.7, 152, 161, 165, 171, 174, 179.3, 182, 190, 198, 213, 221, 241.009, 253.81, 256.18, 258, 277.87)
+plot(speed)
+engineSize <- c(1045, 3442, 2996, 3670, 5345, 6998, 3929, 4390, 3929, 4754, 3367, 2849, 3367, 6064, 4700, 7993, 6345, 7993, 5000)
+plot(engineSize)
+brakeHorsepower <- c(1.5, 160, 212, 302, 360, 485, 350, 352, 370, 375, 369, 444, 463, 618, 806, 987, 1183, 1183, 1341)
+plot(brakeHorsepower)
+numberOfCylinders <- c(1, 6, 6, 6, 8, 8, 12, 12, 12, 12, 6, 6, 6, 12, 8, 16, 8, 16, 8)
+plot(numberOfCylinders)
+turboChargers <- c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 2, 0, 2, 4, 0, 4, 2)
+plot(turboChargers)
+curbWeight <- c(0, 2855, 3307, 2798, 3042, 2529, 2851, 3582, 2848, 3263, 3285, 2990, 3505, 2535, 2509, 2601, 4052, 2800, 4387, 3075)
+plot(curbWeight)
+transmission <- c("auto", "no info", "auto", "no info", "manual", "manual", "manual", "manual", "manual", "manual", "manual", "manual", "manual", "manual", "manual", "dct", "auto", "dct", "dct")
+
+table(makeModel, transmission)
+```
+
