@@ -23,6 +23,10 @@ brakeHorsepower <- c(1.5, 160, 212, 302, 360, 485, 350, 352, 370, 375, 369, 444,
 plot(brakeHorsepower)
 
 
+torque <- c(NA, 193, 217, 240, 360, 480, 295, 318, 295, 308, 350, 369, 408, 479, 679, 922, 634, 1106, 944)
+plot(torque)
+
+
 numberOfCylinders <- c(1, 6, 6, 6, 8, 8, 12, 12, 12, 12, 6, 6, 6, 12, 8, 16, 8, 16, 8)
 plot(numberOfCylinders)
 
