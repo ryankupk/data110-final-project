@@ -19,7 +19,7 @@ turboChargers <- c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 2, 0, 2, 4, 0, 4, 2)
 plot(turboChargers)
 curbWeight <- c(0, 2855, 3307, 2798, 3042, 2529, 2851, 3582, 2848, 3263, 3285, 2990, 3505, 2535, 2509, 2601, 4052, 2800, 4387, 3075)
 plot(curbWeight)
-transmission <- c("auto", "no info", "auto", "no info", "manual", "manual", "manual", "manual", "manual", "manual", "manual", "manual", "manual", "manual", "manual", "dct", "auto", "dct", "dct")
+transmission <- c("auto", "auto", "auto", "auto", "manual", "manual", "manual", "manual", "manual", "manual", "manual", "manual", "manual", "manual", "manual", "dct", "auto", "dct", "dct")
 
 table(makeModel, transmission)
 ```
