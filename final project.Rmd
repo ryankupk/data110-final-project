@@ -10,6 +10,7 @@ output: html_notebook
 ##Introduction
 
 ```{r, message=FALSE}
+library(ggplot2)
 years <- c(1894, 1949, 1955, 1959, 1963, 1965, 1967, 1968, 1969, 1982, 1983, 1986, 1987, 1993, 2004, 2005, 2007, 2010, 2017)
 
 
@@ -21,14 +22,24 @@ table(years, makeModel)
 
 ```{r}
 speed <- c(12, 124.6, 150.7, 152, 161, 165, 171, 174, 179.3, 182, 190, 198, 213, 221, 241.009, 253.81, 256.18, 258, 277.87)
-plot(speed)
+
+
+ggplot(data.frame(speed), aes(x = speed, y = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19))) +
+    geom_point() + 
+    labs(title = "Speed in Miles Per Hour", x = "Speed (MPH)", y = "Index")
+
 ```
 <img src="images/01benzVelo.png"></img>
 
 ```{r}
-plot(speed[-1])
+
+ggplot(data.frame(speed[-1]), aes(x = speed[-1], y = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18))) +
+    geom_point() + 
+    labs(title = "Speed in Miles Per Hour (without Benz Velo)", x = "Speed (MPH)", y = "Index")
+
 ```
 
+<img src="images/02jagXK120.png"></img>
 
 ##Curb Weight
 
@@ -38,8 +49,13 @@ curbWeight <- c(NA, 2855, 3307, 2798, 3042, 2529, 2851, 3582, 2848, 3263, 3285, 
 sd(curbWeight[-1])
 range(curbWeight[-1])
 
-plot(curbWeight[-1])
-plot(speed[-1], curbWeight[-1:-2])
+ggplot(data.frame(curbWeight[-1:-2]), aes(y = curbWeight[-1:-2], x = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18))) +
+    geom_point() + 
+    labs(title = "Curb Weight", x = "Index", y = "Curb Weight (Pounds)")
+
+ggplot(data.frame(speed[-1], curbWeight[-1:-2]), aes(y = curbWeight[-1:-2], x = speed[-1])) +
+    geom_point() + 
+    labs(title = "Speed vs. Curb Weight", x = "Speed (MPH)", y = "Curb Weight (Pounds)")
 ```
 
 <img src="images/06ACShelbyCobra427MKIII.png"></img>
@@ -64,7 +80,14 @@ speedCurbWeightCorrelation
 ```{r}
 aerialDragCoefficient <- c(NA, 0.55, 0.25, 0.45, 0.40, 0.5, 0.4, 0.4, 0.4, 0.42, 0.4, 0.31, 0.4, 0.32, 0.297, 0.26, 0.357, 0.26, 0.33)
 plot(aerialDragCoefficient)
-plot(speed[-1], aerialDragCoefficient[-1])
+
+ggplot(data.frame(aerialDragCoefficient[-1]), aes(y = aerialDragCoefficient[-1], x = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18))) +
+    geom_point() + 
+    labs(title = "Aerial Drag Coefficient", x = "Index", y = "Aerial Drag Coefficient")
+
+ggplot(data.frame(speed[-1], aerialDragCoefficient[-1]), aes(y = aerialDragCoefficient[-1], x = speed[-1])) +
+    geom_point() + 
+    labs(title = "Speed vs. Aerial Drag Coefficient", x = "Speed (MPH)", y = "Aerial Drag Coefficient")
 ```
 
 <img src="images/03mercedesBenz300SL.png"></img>
@@ -83,8 +106,14 @@ speedAerialDragCoefficient
 
 ```{r}
 engineSize <- c(1045, 3442, 2996, 3670, 5345, 6998, 3929, 4390, 3929, 4754, 3367, 2849, 3367, 6064, 4700, 7993, 6345, 7993, 5000)
-plot(engineSize[-1])
-plot(speed[-1], engineSize[-1])
+
+ggplot(data.frame(engineSize[-1]), aes(y = engineSize[-1], x = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18))) +
+    geom_point() + 
+    labs(title = "Engine Size", x = "Index", y = "Engine Size (Cubic Centimeters)")
+
+ggplot(data.frame(speed[-1], engineSize[-1]), aes(y = engineSize[-1], x = speed[-1])) +
+    geom_point() + 
+    labs(title = "Speed vs. Engine Size", x = "Speed (MPH)", y = "Engine Size (Cubic Centimeters)")
 ```
 
 
@@ -103,8 +132,14 @@ speedEngineSizeCorrelation
 
 ```{r}
 numberOfCylinders <- c(1, 6, 6, 6, 8, 8, 12, 12, 12, 12, 6, 6, 6, 12, 8, 16, 8, 16, 8)
-plot(numberOfCylinders[-1])
-plot(speed[-1], numberOfCylinders[-1])
+
+ggplot(data.frame(numberOfCylinders[-1]), aes(y = numberOfCylinders[-1], x = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18))) +
+    geom_point() + 
+    labs(title = "Number of Cylinders", x = "Index", y = "Number of Cylinders")
+
+ggplot(data.frame(speed[-1], numberOfCylinders[-1]), aes(y = numberOfCylinders[-1], x = speed[-1])) +
+    geom_point() + 
+    labs(title = "Speed vs. Number of Cylinders", x = "Speed (MPH)", y = "Number of Cylinders")
 ```
 
 
@@ -126,8 +161,14 @@ speedNumberOfCylindersCorrelation
 
 ```{r}
 turboChargers <- c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 2, 0, 2, 4, 0, 4, 2)
-plot(turboChargers[-1])
-plot(speed[-1], turboChargers[-1])
+
+ggplot(data.frame(turboChargers[-1]), aes(y = turboChargers[-1], x = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18))) +
+    geom_point() + 
+    labs(title = "Number of Turbochargers", x = "Index", y = "Number of Turbochargers")
+
+ggplot(data.frame(speed[-1], turboChargers[-1]), aes(y = turboChargers[-1], x = speed[-1])) +
+    geom_point() + 
+    labs(title = "Speed vs. Number of Turbochargers", x = "Speed (MPH)", y = "Number of Turbochargers")
 ```
 
 <img src="images/17SSCUltimateAeroTT.png"></img>
@@ -148,16 +189,32 @@ speedTurboChargersCorrelation
 
 ```{r}
 brakeHorsepower <- c(1.5, 160, 212, 302, 360, 485, 350, 352, 370, 375, 369, 444, 463, 618, 806, 987, 1183, 1183, 1341)
-plot(brakeHorsepower[-1])
-plot(speed[-1], brakeHorsepower[-1])
+
+ggplot(data.frame(brakeHorsepower[-1]), aes(y = brakeHorsepower[-1], x = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18))) +
+    geom_point() + 
+    labs(title = "Brake Horsepower", x = "Index", y = "Brake Horsepower")
+
+ggplot(data.frame(speed[-1], brakeHorsepower[-1]), aes(y = brakeHorsepower[-1], x = speed[-1])) +
+    geom_point() + 
+    labs(title = "Speed vs. Brake Horsepower", x = "Speed (MPH)", y = "Brake Horsepower")
+
+
 speedBrakeHorsepowerCorrelation <- cor(speed[-1], brakeHorsepower[-1])
 speedBrakeHorsepowerCorrelation
 ```
 
 ```{r}
 torque <- c(NA, 193, 217, 240, 360, 480, 295, 318, 295, 308, 350, 369, 408, 479, 679, 922, 634, 1106, 944)
-plot(torque[-1])
-plot(speed[-1], torque[-1])
+
+ggplot(data.frame(torque[-1]), aes(y = torque[-1], x = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18))) +
+    geom_point() + 
+    labs(title = "Torque", x = "Index", y = "Torque (Pound-Feet)")
+
+ggplot(data.frame(speed[-1], torque[-1]), aes(y = torque[-1], x = speed[-1])) +
+    geom_point() + 
+    labs(title = "Speed vs. Torque", x = "Speed (MPH)", y = "Torque (Pound-Feet)")
+
+
 speedTorqueCorrelation <- cor(speed[-1], torque[-1])
 speedTorqueCorrelation
 ```
@@ -185,29 +242,32 @@ table(makeModel[-1], transmission[-1])
 ##Conclusion
 
 ```{r}
-plot(speed[-1], years[-1])
-speedYearCorrelation <- cor(speed[-1], years[-1])
+
+ggplot(data.frame(speed[-1], years[-1]), aes(y = years[-1], x = speed[-1])) +
+    geom_point() + 
+    labs(title = "Speed vs. Year", x = "Speed (MPH)", y = "Year")
+
+ggplot(data.frame(speed, years), aes(y = years, x = speed)) +
+    geom_point() + 
+    labs(title = "Speed vs. Year", x = "Speed (MPH)", y = "Year")
+
+speedYearCorrelation <- cor(speed, years)
 speedYearCorrelation
 ```
 
 
-
-
-<img src="images/02jagXK120.png"></img>
-
 <img src="images/04astonMartinDB4GT.png"></img>
+
 <img src="images/05isoGrifoGL365.png"></img>
 
 <img src="images/07lamborghiniMiuraP400.png"></img>
+
 <img src="images/08ferrari365GTB4Daytona.png"></img>
+
 <img src="images/09lamborghiniMiuraP400S.png"></img>
+
 <img src="images/10lamborghiniCountachLP500S.png"></img>
 
 <img src="images/14mcLarenF1.png"></img>
+
 <img src="images/15koenigseggCCR.png"></img>
-
-
-
-
-
-
