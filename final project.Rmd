@@ -74,12 +74,12 @@ data.frame(makeModel, transmission) %>%
 ```{r}
 curbWeight <- c(0, 2855, 3307, 2883, 3550, 2019, 2848, 2646, 2848, 2978, 2990, 3505, 2535, 2509, 2601, 4052, 2800, 4387, 3075)
 
-sd(curbWeight[-1])
-range(curbWeight[-1])
-
 data.frame(makeModel[-1], curbWeight[-1]) %>%
   kable() %>%
   kable_styling()
+
+sd(curbWeight[-1])
+range(curbWeight[-1])
 
 ggplot(data.frame(curbWeight[-1]), aes(y = curbWeight[-1], x = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18))) +
     geom_point() + 
