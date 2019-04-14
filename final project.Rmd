@@ -72,7 +72,7 @@ data.frame(makeModel, transmission) %>%
 ##Curb Weight
 
 ```{r}
-curbWeight <- c(0, 2855, 3307, 2883, 3550, 2019, 2848, 2646, 2848, 2978, 2990, 3505, 2535, 2509, 2601, 4052, 2800, 4387, 3075)
+curbWeight <- c(NA, 2855, 3307, 2883, 3550, 2019, 2848, 2646, 2848, 2978, 2990, 3505, 2535, 2509, 2601, 4052, 2800, 4387, 3075)
 
 data.frame(makeModel[-1], curbWeight[-1]) %>%
   kable() %>%
@@ -149,7 +149,7 @@ speedAerialDragCoefficient
 ```{r}
 engineSize <- c(1045, 3442, 2996, 3670, 5345, 6998, 3929, 4390, 3929, 4754, 3367, 2849, 3367, 6064, 4700, 7993, 6345, 7993, 5000)
 
-data.frame(makeModel[-1], engineSize[-1]) %>%
+data.frame(makeModel, engineSize) %>%
   kable() %>%
   kable_styling()
 
@@ -179,7 +179,7 @@ speedEngineSizeCorrelation
 ```{r}
 numberOfCylinders <- c(1, 6, 6, 6, 8, 8, 12, 12, 12, 12, 6, 6, 6, 12, 8, 16, 8, 16, 8)
 
-data.frame(makeModel[-1], numberOfCylinders[-1]) %>%
+data.frame(makeModel, numberOfCylinders) %>%
   kable() %>%
   kable_styling()
 
@@ -216,7 +216,7 @@ speedNumberOfCylindersCorrelation
 ```{r}
 turboChargers <- c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 2, 0, 2, 4, 0, 4, 2)
 
-data.frame(makeModel[-1], turboChargers[-1]) %>%
+data.frame(makeModel, turboChargers) %>%
   kable() %>%
   kable_styling()
 
@@ -253,7 +253,7 @@ speedTurboChargersCorrelation
 ```{r}
 brakeHorsepower <- c(1.5, 160, 212, 302, 360, 485, 350, 352, 370, 375, 369, 444, 463, 618, 806, 987, 1183, 1183, 1341)
 
-data.frame(makeModel[-1], brakeHorsepower[-1]) %>%
+data.frame(makeModel, brakeHorsepower) %>%
   kable() %>%
   kable_styling()
 
